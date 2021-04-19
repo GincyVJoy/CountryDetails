@@ -1,0 +1,11 @@
+.country-information{
+    display: flex;
+    flex-direction: column;
+    & > *{
+        text-align:center;
+    }
+    .region-drop-down{
+        width:50%;
+        margin:0 auto;
+    }
+}

@@ -1,0 +1,5 @@
+<nz-select class="region-drop-down" [(ngModel)]="selectedData" [nzPlaceHolder]='placeHolderName' [nzDisabled] = 'isSelectRegion' (ngModelChange) ="getSelectedItem()">
+    <nz-option *ngFor="let list of data | async"  nzValue="{{list}}" nzLabel="{{list | titlecase }}"></nz-option>
+  </nz-select>
+  
+ 

@@ -1,0 +1,30 @@
+<section class="country-information">
+  <h1>Country Details</h1>
+  <h4>Please select the region</h4>
+  <app-reusable-drop-down [isSelectRegion] ='false' [placeHolderName]="'Region'" [data]="regions$" (selectedItem) = "getSelectedRegion($event)"></app-reusable-drop-down>
+  <app-reusable-drop-down style="margin-top:5%" [isSelectRegion] ='isSelectRegion' [placeHolderName]="'Country'" [data]='countryList' (selectedItem) = "getSelectedCountry($event)"></app-reusable-drop-down>
+
+    <nz-table style="margin:5%" *ngIf="countryDetails.length != 0" #middleTable nzSize="middle" [nzOuterBordered] =true [nzBordered]=true [nzData]="countryDetails" [nzShowPagination]=false>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Capital</th>
+          <th>Population</th>
+          <th>Currency </th>
+          <th>Flag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of middleTable.data">
+          <td>{{ data?.name }}</td>
+          <td>{{ data?.capital }}</td>
+          <td>{{ data?.population }}</td>
+          <td><span *ngFor="let currency of data?.currencies">{{currency?.name}}<br></span></td>
+          <td><img [src] = "data['flag']" alt="Girl in a jacket" width="50" height="60"></td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+
+
+</section>
